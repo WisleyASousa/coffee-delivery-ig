@@ -7,9 +7,21 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :focus {
+    outline: 0;
+    box-shadow: ${props => props.theme['purple']};
+  }
+
   body {
-    background: #333;
-    color: #fff;
+    background: ${props => props.theme['background']};
+    color: ${props => props.theme['baseLabel']};
+  }
+
+  body, input, textarea, button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+
   }
 
   
