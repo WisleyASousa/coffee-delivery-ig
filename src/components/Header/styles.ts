@@ -44,14 +44,38 @@ export const HeaderContainer = styled.header `
       gap: 0.75rem;
       
     }
+  }
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    white-space: break-spaces;
+    padding: 1.5rem 0;
+
+    gap: 2rem;
+
+    
+    h2 {
+    font-size: 2rem;
+      
+    }
+    span {
+      font-size: 0.875rem;
+    }
+    img {
+      width: 70%;
+    }
+
+    ul {
+    grid-template-columns: 1fr;
+      
+    }
   }
 `
 
 export const TextHeader = styled.div `
   display: flex;
-      flex-direction: column;
-      gap: 4.125rem;
+  flex-direction: column;
+  gap: 4.125rem;
 
   div {
     display: flex;
@@ -65,6 +89,10 @@ export const TextHeader = styled.div `
     
     display: flex;
     align-items: center;
+  }
+  @media (max-width: 768px) {
+    gap: 2rem;
+
   }
     
 `

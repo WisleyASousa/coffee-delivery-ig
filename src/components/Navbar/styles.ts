@@ -2,13 +2,15 @@ import styled from "styled-components";
 
 export const NavbarContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: auto;
   
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 1rem 0;
   border-bottom: 1px solid ${props => props.theme['purpleLight']};
+  padding: 1rem;
+  
 
   nav {
     display: flex;
@@ -20,6 +22,9 @@ export const NavbarContainer = styled.div`
 
   @media (max-width: 425px){
     flex-direction: column;
+    img {
+    padding-bottom: .5rem;
+    }
 
     nav {
       gap: 4rem;
@@ -46,6 +51,7 @@ export const BtnBase = styled.a `
 export const BtnLocation = styled(BtnBase) `
   background: ${props => props.theme['purpleLight']};
   color: ${props => props.theme['purpleDark']};
+  white-space: nowrap;
 
 
   &:hover {

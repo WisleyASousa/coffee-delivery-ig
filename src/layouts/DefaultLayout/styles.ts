@@ -9,10 +9,13 @@ export const LayoutContainer = styled.div`
   
   flex-direction: column;
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
+    padding: 1rem;
+  }
+  @media (min-width: 768px) {
     padding: 0 5rem;
   }
-  @media (max-width: 425px) {
-    padding: 0.5rem;
+  @media (min-width: 1325px) {
+    padding: 0;
   }
 `
