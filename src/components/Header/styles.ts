@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// import imgbackground from '../../assets/Background.png'
 
 export const HeaderContainer = styled.header `
   width: 100%;
@@ -9,9 +8,13 @@ export const HeaderContainer = styled.header `
   align-items: center;
   justify-content: center;
   gap: 3.5rem;
-  /* background-image: url('../../assets/Background.png');
+  border-bottom: 1px solid ${props => props.theme['purpleLight']};
+
+
+  /* background-image: url('../../../public/Background.png') ;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
+   */
 
 
   h2 {
