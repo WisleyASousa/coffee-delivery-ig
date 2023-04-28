@@ -1,9 +1,14 @@
-import { ShoppingCart } from "@phosphor-icons/react";
-import { ActionContainer, ItemCardContainer, ItemDescription, ItemTitle, TagsName } from "./styles";
+import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
+import { ActionContainer, ButtonCart, ImgContainer, ItemCardContainer, ItemDescription, ItemTitle, QuantityToBuy, TagsName } from "./styles";
+
+import expresso from "../../assets/TypeExpresso.png"
 
 export function ItemCard() {
   return (
       <ItemCardContainer>
+        <ImgContainer>
+          <img src={expresso} alt='' />
+        </ImgContainer>
         <TagsName>
           Tradicional
         </TagsName>
@@ -16,10 +21,14 @@ export function ItemCard() {
         <ActionContainer>
           <p><span>R$</span> 9,90</p>
           <div>
-            <p>- 1 +</p>
-            <button>
+            <QuantityToBuy>
+              <button><Minus size={14}/></button>
+              <span>1</span>
+              <button><Plus size={14} /></button>
+            </QuantityToBuy>
+            <ButtonCart>
               <ShoppingCart size={22}/>
-            </button>
+            </ButtonCart>
           </div>
         </ActionContainer>
       </ItemCardContainer>

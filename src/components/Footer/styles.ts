@@ -5,10 +5,7 @@ export const FooterContainer = styled.footer`
   align-items: center;
   justify-content: center;
   border-top: 1px solid ${props => props.theme['purpleLight']};
-
-  position: fixed;
-  bottom: 0;
-  width: 85%;
+  margin: 4rem 0;
 
   p {
     display: flex;

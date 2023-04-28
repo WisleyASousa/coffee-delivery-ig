@@ -7,8 +7,8 @@ export function DefaultLayout() {
   return (
       <LayoutContainer>
         <Navbar />
-        <Footer />
         <Outlet />
+        <Footer />
       </LayoutContainer>
     );
 }
