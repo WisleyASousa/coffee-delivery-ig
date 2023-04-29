@@ -4,6 +4,10 @@ export const CheckoutContainer = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
 `
 export const CheckoutSubTitle = styled.h3`
   font-family: 'Baloo 2', cursive;
@@ -69,6 +73,10 @@ export const FormAddress = styled.div`
     font-size: 0.875rem;
     color: ${props => props.theme['baseLabel']};
   }
+  @media (max-width: 425px) {
+    flex-direction: column;
+    width: 100% !important;
+  }
 `
 
 const baseInputAddress = styled.input`
@@ -82,6 +90,10 @@ const baseInputAddress = styled.input`
     font-size: 0.875rem;
     color: ${props => props.theme['baseLabel']};
 
+  }
+  @media (max-width: 425px) {
+    flex-direction: column;
+    width: 100% !important;
   }
   
 `
@@ -113,5 +125,9 @@ export const BoxFormAddress = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 12px
+  gap: 12px;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+  }
 `
