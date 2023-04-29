@@ -12,7 +12,7 @@ export const FooterContainer = styled.footer`
     align-items: center;
     justify-content: center;
     gap: .2rem;
-    font-size: .75rem;
+    font-size: .875rem;
     padding: 1rem 0;
     
 }

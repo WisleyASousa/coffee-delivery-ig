@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { BtnBase } from "../Navbar/styles";
 
 export const ItemCardContainer = styled.div`
   
@@ -129,7 +128,14 @@ export const QuantityToBuy = styled.div`
   }
 `
 
-export const ButtonCart = styled(BtnBase)`
+export const ButtonCart = styled.button`
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid transparent;
   background: ${props => props.theme['purpleDark']};
   color: ${props => props.theme['baseCard']};
   transition: all .2s ease-out;

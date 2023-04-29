@@ -36,7 +36,7 @@ export const NavbarContainer = styled.div`
 
 `
 
-export const BtnBase = styled.a `
+const BtnBase = styled.a `
   padding: 0.5rem;
   display: flex;
   align-items: center;
@@ -44,15 +44,14 @@ export const BtnBase = styled.a `
   cursor: pointer;
   border-radius: 8px;
   border: 1px solid transparent;
-  
-  
+
 `
 
 export const BtnLocation = styled(BtnBase) `
   background: ${props => props.theme['purpleLight']};
   color: ${props => props.theme['purpleDark']};
   white-space: nowrap;
-
+  gap: 0.25rem;
 
   &:hover {
     border: 1px solid ${props => props.theme['purpleDark']};

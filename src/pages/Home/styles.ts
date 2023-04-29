@@ -24,8 +24,7 @@ export const MenuContainer = styled.div`
   flex-wrap: wrap;
   flex: 1;
 
-  @media (max-width: 1024px) {
-    /* align-items: center; */
+  @media (max-width: 1439px) {
     justify-content: center;
   }
 `
