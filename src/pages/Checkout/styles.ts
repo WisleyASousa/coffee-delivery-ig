@@ -171,6 +171,12 @@ export const RadioContainer = styled.div`
     background: ${props => props.theme['baseButton']};
     border-radius: 6px;
     gap: 0.75rem;
+
+    &:hover {
+      background: ${props => props.theme['baseHover']};
+      transition: all .2s ease-out;  
+    }
+
     @media (max-width: 425px) {
       justify-content: start;
       padding-right: 3rem;
@@ -189,4 +195,18 @@ export const RadioContainer = styled.div`
     background: ${props => props.theme['purpleLight']};
 
   }
+`
+
+// selected coffees
+
+export const SelectedCoffeesContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  padding: 2.5rem;
+  gap: 1.5rem;
+  background: ${props => props.theme['baseCard']};
+  border-radius: 6px 44px;
+
 `

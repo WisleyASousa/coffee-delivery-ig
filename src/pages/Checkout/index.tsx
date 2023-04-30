@@ -1,5 +1,24 @@
-import { Bank, CreditCard, CurrencyBtc, CurrencyDollar, MapPinLine, Money } from "@phosphor-icons/react";
-import { Address, AddressContainer, BoxFormAddress, CheckoutContainer, CheckoutSubTitle, City, Complement, DeliveryAddressTitle, DeliveryPayTitle, FormAddress, Number, PaymentsContainer, RadioContainer, State, UF, Zip } from "./styles";
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "@phosphor-icons/react";
+import { 
+  Address, 
+  AddressContainer, 
+  BoxFormAddress, 
+  CheckoutContainer, 
+  CheckoutSubTitle, 
+  City, 
+  Complement, 
+  DeliveryAddressTitle, 
+  DeliveryPayTitle, 
+  FormAddress, 
+  Number, 
+  PaymentsContainer, 
+  RadioContainer, 
+  SelectedCoffeesContainer, 
+  State, 
+  UF, 
+  Zip 
+} from "./styles";
+import { ListSelectedCoffees } from "../../components/ListSelectedCoffees";
 
 
 export function Checkout() {
@@ -23,16 +42,51 @@ export function Checkout() {
 
 
             <FormAddress>
-              <Zip type="text" id="zip" name="zip" placeholder="CEP*" />
-              <Address type="text" id="address" name="address" placeholder="Rua*"/>
+              <Zip 
+                type="text" 
+                id="zip" 
+                name="zip" 
+                placeholder="CEP*" 
+              />
+              <Address 
+                type="text" 
+                id="address" 
+                name="address" 
+                placeholder="Rua*"
+              />
+
               <BoxFormAddress>
-                <Number type="text" id="number" name="number" placeholder="Número*"/>
-                <Complement type="text" name="complement" placeholder="Complemento" />
+                <Number 
+                  type="text" 
+                  id="number" 
+                  name="number" 
+                  placeholder="Número*"
+                />
+                <Complement 
+                  type="text" 
+                  name="complement" 
+                  placeholder="Complemento" 
+                />
               </BoxFormAddress>
               <BoxFormAddress>
-                <State type="text" id="state" name="district" placeholder="Bairro*"/>
-                <City type="text" id="city" name="city" placeholder="Cidade*"/>
-                <UF type="text" id="UF" name="UF" placeholder="UF*"/>
+                <State 
+                  type="text" 
+                  id="state" 
+                  name="district" 
+                  placeholder="Bairro*"
+                />
+                <City 
+                  type="text" 
+                  id="city" 
+                  name="city" 
+                  placeholder="Cidade*"
+                />
+                <UF 
+                  type="text" 
+                  id="UF" 
+                  name="UF" 
+                  placeholder="UF*"
+                />
                 
               </BoxFormAddress>
               <span>*Obrigatório</span>
@@ -51,22 +105,40 @@ export function Checkout() {
 
           <RadioContainer>
             
-              <input type="radio" name="options" id="credit" autoComplete="off" />
-              <label  htmlFor="credit">
+              <input 
+                type="radio" 
+                name="options" 
+                id="credit" 
+                autoComplete="off" 
+              />
+              <label  
+                htmlFor="credit">
                 <CreditCard size={16} />
                 Cartão de crédito
               </label>
             
             
-              <input type="radio" name="options" id="debt" autoComplete="off" />
-              <label htmlFor="debt">
+              <input 
+                type="radio" 
+                name="options" 
+                id="debt" 
+                autoComplete="off" 
+              />
+              <label 
+                htmlFor="debt">
                 <Bank size={16} />
                 cartão de débito
               </label>
             
             
-              <input type="radio" name="options" id="money" autoComplete="off" />
-              <label htmlFor="money">
+              <input 
+                type="radio" 
+                name="options" 
+                id="money" 
+                autoComplete="off" 
+              />
+              <label 
+                htmlFor="money">
                 <Money size={16} />
                 dinheiro
               </label>
@@ -82,10 +154,10 @@ export function Checkout() {
 
         <CheckoutSubTitle>Cafés selecionados</CheckoutSubTitle>
 
-        <div>
-          cart with selected items
+        <SelectedCoffeesContainer>
+          <ListSelectedCoffees />
           <button type="submit">confirmar pedido</button>
-        </div>
+        </SelectedCoffeesContainer>
 
       </div>
 
