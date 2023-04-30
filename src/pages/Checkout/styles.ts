@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 
 export const CheckoutContainer = styled.form`
@@ -129,5 +130,63 @@ export const BoxFormAddress = styled.div`
 
   @media (max-width: 425px) {
     flex-direction: column;
+  }
+`
+
+// Payments
+
+export const PaymentsContainer = styled(AddressContainer)`
+  margin-top: 12px;
+  svg {
+    color: ${props => props.theme['purple']};
+  }
+`
+
+export const DeliveryPayTitle = styled(DeliveryAddressTitle)`
+  
+`
+
+export const RadioContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  white-space: nowrap;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+  }
+
+  label {
+    color: ${props => props.theme['baseText']};
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: ${props => props.theme['baseButton']};
+    border-radius: 6px;
+    gap: 0.75rem;
+    @media (max-width: 425px) {
+      justify-content: start;
+      padding-right: 3rem;
+    }
+    
+  }
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  input[type="radio"]:checked + label {
+    border-color: ${props => props.theme['purple']};
+    background: ${props => props.theme['purpleLight']};
+
   }
 `

@@ -1,8 +1,9 @@
-import { MapPinLine } from "@phosphor-icons/react";
-import { Address, AddressContainer, BoxFormAddress, CheckoutContainer, CheckoutSubTitle, City, Complement, DeliveryAddressTitle, FormAddress, Number, State, UF, Zip } from "./styles";
+import { Bank, CreditCard, CurrencyBtc, CurrencyDollar, MapPinLine, Money } from "@phosphor-icons/react";
+import { Address, AddressContainer, BoxFormAddress, CheckoutContainer, CheckoutSubTitle, City, Complement, DeliveryAddressTitle, DeliveryPayTitle, FormAddress, Number, PaymentsContainer, RadioContainer, State, UF, Zip } from "./styles";
 
 
 export function Checkout() {
+
   return (
     <CheckoutContainer>
 
@@ -39,9 +40,41 @@ export function Checkout() {
 
         </AddressContainer>
 
-        <div>
-          payment
-        </div>
+        <PaymentsContainer>
+          <div>
+            <CurrencyDollar size={22} />
+            <DeliveryPayTitle>
+              <p>Pagamento</p>
+              <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+            </DeliveryPayTitle>
+          </div>
+
+          <RadioContainer>
+            
+              <input type="radio" name="options" id="credit" autoComplete="off" />
+              <label  htmlFor="credit">
+                <CreditCard size={16} />
+                Cartão de crédito
+              </label>
+            
+            
+              <input type="radio" name="options" id="debt" autoComplete="off" />
+              <label htmlFor="debt">
+                <Bank size={16} />
+                cartão de débito
+              </label>
+            
+            
+              <input type="radio" name="options" id="money" autoComplete="off" />
+              <label htmlFor="money">
+                <Money size={16} />
+                dinheiro
+              </label>
+            
+
+          </RadioContainer>
+
+        </PaymentsContainer>
 
       </div>
 
