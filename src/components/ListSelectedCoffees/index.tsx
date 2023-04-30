@@ -1,4 +1,4 @@
-import { ListSelectedCoffeesContainer } from "./styles";
+import { ListSelectedCoffeesContainer, ListSelectedCoffeesLine } from "./styles";
 
 import coffeeImg from "../../assets/TypeExpresso.png";
 
@@ -31,7 +31,7 @@ export function ListSelectedCoffees() {
             </div>
           </div>
         </ListSelectedCoffeesContainer>
-        <ListSelectedCoffees />
+        <ListSelectedCoffeesLine />
       </>
     )
 }

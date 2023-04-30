@@ -156,6 +156,7 @@ export function Checkout() {
 
         <SelectedCoffeesContainer>
           <ListSelectedCoffees />
+          <ListSelectedCoffees />
           <button type="submit">confirmar pedido</button>
         </SelectedCoffeesContainer>
 
