@@ -1,4 +1,4 @@
-import { ListSelectedCoffeesContainer, ListSelectedCoffeesLine } from "./styles";
+import { ActionBoxSelected, BtnAmount, BtnRemove, ItemPriceBox, ItemRemoveBox, ListSelectedCoffeesContainer, ListSelectedCoffeesLine } from "./styles";
 
 import coffeeImg from "../../assets/TypeExpresso.png";
 
@@ -11,25 +11,32 @@ export function ListSelectedCoffees() {
           <div>
             <img src={coffeeImg} width={64}/>
           </div>
-          <div>
-            <div>
+          <ActionBoxSelected>
+            <ItemPriceBox>
               <p>Expresso Tradicional</p>
-              <p>R$ 9,90</p>
-            </div>
-            <div>
-              <button>
-                <Minus size={14}/>
-              </button>
-              <span>1</span>
-              <button>
-                <Plus size={14} />
-              </button>
-              <button>
-                <Trash />
+              <span>R$ 9,90</span>
+            </ItemPriceBox>
+
+            <ItemRemoveBox>
+
+              <div>
+                <BtnAmount>
+                  <Minus size={14}/>
+                </BtnAmount>
+                <span>1</span>
+                <BtnAmount>
+                  <Plus size={14} />
+                </BtnAmount>
+              </div>
+
+              <BtnRemove>
+                <Trash size={16} />
                 remover
-              </button>
-            </div>
-          </div>
+              </BtnRemove>
+
+            </ItemRemoveBox>
+
+          </ActionBoxSelected>
         </ListSelectedCoffeesContainer>
         <ListSelectedCoffeesLine />
       </>

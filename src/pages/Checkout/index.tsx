@@ -2,7 +2,11 @@ import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "@phosphor-i
 import { 
   Address, 
   AddressContainer, 
+  BaseIndividualValues, 
+  BaseValues, 
+  BaseValuesTotal, 
   BoxFormAddress, 
+  BoxValues, 
   CheckoutContainer, 
   CheckoutSubTitle, 
   City, 
@@ -157,7 +161,24 @@ export function Checkout() {
         <SelectedCoffeesContainer>
           <ListSelectedCoffees />
           <ListSelectedCoffees />
+
+          <BoxValues>
+            <BaseIndividualValues>
+              <p>Total de itens</p>
+              <p>R$ 19,80</p>
+            </BaseIndividualValues>
+            <BaseIndividualValues>
+              <p>Entrega</p>
+              <p>R$ 3,50</p>
+            </BaseIndividualValues>
+            <BaseValuesTotal>
+              <p>Total</p>
+              <p>R$ 23,30</p>
+            </BaseValuesTotal>
+          </BoxValues>
+          
           <button type="submit">confirmar pedido</button>
+
         </SelectedCoffeesContainer>
 
       </div>

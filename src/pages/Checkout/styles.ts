@@ -210,3 +210,32 @@ export const SelectedCoffeesContainer = styled.div`
   border-radius: 6px 44px;
 
 `
+
+export const BoxValues = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+`
+
+
+const BaseBoxValues = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+`
+
+export const BaseIndividualValues = styled(BaseBoxValues)`
+  color: ${props => props.theme['baseText']};
+  font-size: 0.875rem;
+  line-height: 1.3;
+`
+export const BaseValuesTotal = styled(BaseBoxValues)`
+  font-weight: 700;
+  color: ${props => props.theme['baseSubtitle']};
+  font-size: 1.25rem;
+  line-height: 1.3;
+`
