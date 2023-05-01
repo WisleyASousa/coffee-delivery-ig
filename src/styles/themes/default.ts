@@ -8,6 +8,7 @@ export const defaultTheme = {
   'purpleDark': '#4B2995',
   'purple': '#8047F8',
   'purpleLight': '#EBE5F9',
+  'linear': 'Linear Gradient #DBAC2C @ 0% #8047F8 @ 100%',
 
   // Base Cores
   

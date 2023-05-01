@@ -23,6 +23,7 @@ import {
   Zip 
 } from "./styles";
 import { ListSelectedCoffees } from "../../components/ListSelectedCoffees";
+import { Link } from "react-router-dom";
 
 
 export function Checkout() {
@@ -177,10 +178,12 @@ export function Checkout() {
             </BaseValuesTotal>
           </BoxValues>
           
-          <BtnConfirmOrder 
-            type="submit">
-            confirmar pedido
-          </BtnConfirmOrder>
+          <Link to='/Success' title="Success">
+            <BtnConfirmOrder 
+              type="submit">
+              confirmar pedido
+            </BtnConfirmOrder>
+          </Link>
 
         </SelectedCoffeesContainer>
 

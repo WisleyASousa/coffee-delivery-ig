@@ -100,7 +100,7 @@ export const TextHeader = styled.div `
     
 `
 
-const BaseIcon = styled.div `
+export const BaseIcon = styled.div `
   width: 2rem;
   height: 2rem;
   padding: 0.5rem;
