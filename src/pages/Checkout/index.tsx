@@ -3,10 +3,10 @@ import {
   Address, 
   AddressContainer, 
   BaseIndividualValues, 
-  BaseValues, 
   BaseValuesTotal, 
   BoxFormAddress, 
   BoxValues, 
+  BtnConfirmOrder, 
   CheckoutContainer, 
   CheckoutSubTitle, 
   City, 
@@ -177,7 +177,10 @@ export function Checkout() {
             </BaseValuesTotal>
           </BoxValues>
           
-          <button type="submit">confirmar pedido</button>
+          <BtnConfirmOrder 
+            type="submit">
+            confirmar pedido
+          </BtnConfirmOrder>
 
         </SelectedCoffeesContainer>
 

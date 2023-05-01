@@ -6,7 +6,15 @@ export const CheckoutContainer = styled.form`
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 
+  @media (max-width: 425px) {
+    justify-content: center;
+    padding: 0 0 !important;
+    grid-template-columns: 1fr;
+  }
+
   @media (max-width: 1024px) {
+    justify-content: center;
+    padding: 0 5rem;
     grid-template-columns: 1fr;
   }
 `
@@ -18,6 +26,10 @@ export const CheckoutSubTitle = styled.h3`
   color: ${props => props.theme['baseSubtitle']};
   padding-top: 2.5rem;
   padding-bottom: 1rem;
+
+  @media (max-width: 425px) {
+    text-align: center;
+  }
 `
 
 export const AddressContainer = styled.div`
@@ -90,8 +102,11 @@ const baseInputAddress = styled.input`
     line-height: 1.3;
     font-size: 0.875rem;
     color: ${props => props.theme['baseLabel']};
-
   }
+  &:focus {
+    border: 1px solid ${props => props.theme['yellowDark']};
+  }
+
   @media (max-width: 425px) {
     flex-direction: column;
     width: 100% !important;
@@ -238,4 +253,29 @@ export const BaseValuesTotal = styled(BaseBoxValues)`
   color: ${props => props.theme['baseSubtitle']};
   font-size: 1.25rem;
   line-height: 1.3;
+`
+export const BtnConfirmOrder= styled.button`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.75rem 0.5rem;
+  background: ${props => props.theme['yellow']};
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease-out;  
+
+
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: ${props => props.theme['white']};
+ 
+  &:hover {
+    background: ${props => props.theme['yellowDark']};
+  }
+
 `
