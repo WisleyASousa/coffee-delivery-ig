@@ -24,9 +24,13 @@ export const ImgContainer = styled.div`
     /* top: -70px; */
   }  
 `
+export const BoxTags = styled.div`
+  display: flex;
+  gap: 0.25rem;
+`
 
 export const TagsName = styled.p`
-
+  
   padding: 8px 8px;
   background: ${props => props.theme['yellowLight']};
   border-radius: 100px;

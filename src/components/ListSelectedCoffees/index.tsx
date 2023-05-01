@@ -1,6 +1,6 @@
 import { ActionBoxSelected, BtnAmount, BtnRemove, ItemPriceBox, ItemRemoveBox, ListSelectedCoffeesContainer, ListSelectedCoffeesLine } from "./styles";
 
-import coffeeImg from "../../assets/TypeExpresso.png";
+import coffeeImg from "../../../public/imgCoffees/TypeExpresso.png";
 
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
 

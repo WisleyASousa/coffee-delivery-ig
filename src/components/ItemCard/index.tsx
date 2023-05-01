@@ -1,25 +1,38 @@
 import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
-import { ActionContainer, ButtonCart, ImgContainer, ItemCardContainer, ItemDescription, ItemTitle, QuantityToBuy, TagsName } from "./styles";
+import { ActionContainer, BoxTags, ButtonCart, ImgContainer, ItemCardContainer, ItemDescription, ItemTitle, QuantityToBuy, TagsName } from "./styles";
 
-import expresso from "../../assets/TypeExpresso.png"
+// import expresso from "../../assets/imgCoffees/TypeExpresso.png"
 
-export function ItemCard() {
+interface ItemCardProps {
+  id: string;
+  img: string;
+  tags: string[];
+  name: string;
+  description: string;
+  price: string;
+  stock: number;
+}
+
+export function ItemCard(props: ItemCardProps) {
   return (
       <ItemCardContainer>
         <ImgContainer>
-          <img src={expresso} alt='' />
+          <img src={props.img} alt='' />
         </ImgContainer>
-        <TagsName>
-          Tradicional
-        </TagsName>
+        <BoxTags>
+          {props.tags.map((tag) => (
+            <TagsName key={tag}>{tag}</TagsName>
+            ))  
+          }
+        </BoxTags>
         <ItemTitle>
-          Expresso Tradicional
+          {props.name}
         </ItemTitle>
         <ItemDescription>
-          O tradicional café feito com água quente e grãos moídos
+          {props.description}
         </ItemDescription>
         <ActionContainer>
-          <p><span>R$</span> 9,90</p>
+          <p><span>R$</span> {props.price}</p>
           <div>
             <QuantityToBuy>
               <button><Minus size={14}/></button>
