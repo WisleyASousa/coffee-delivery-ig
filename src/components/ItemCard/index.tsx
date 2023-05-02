@@ -1,7 +1,7 @@
 import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
 import { ActionContainer, BoxTags, ButtonCart, ImgContainer, ItemCardContainer, ItemDescription, ItemTitle, QuantityToBuy, TagsName } from "./styles";
 import { useState } from "react";
-import { itemForCart } from "../../pages/Home";
+import { itemForCartDate } from "../../pages/Home";
 
 // import expresso from "../../assets/imgCoffees/TypeExpresso.png"
 
@@ -16,7 +16,7 @@ interface ItemCardProps {
   description: string;
   price: string;
   stock: number;
-  onAddToCart: (item: itemForCart) => void;
+  onAddToCart: (item: itemForCartDate) => void;
   
 }
 

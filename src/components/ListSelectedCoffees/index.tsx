@@ -2,9 +2,11 @@ import { ActionBoxSelected, BtnAmount, BtnRemove, ItemPriceBox, ItemRemoveBox, L
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
 
 interface ListSelectedCoffeesProps {
+  id: string;
   img: string;
   name: string;
   price: string;
+  amount: number;
 }
 
 export function ListSelectedCoffees(props: ListSelectedCoffeesProps) {
@@ -26,7 +28,7 @@ export function ListSelectedCoffees(props: ListSelectedCoffeesProps) {
                 <BtnAmount>
                   <Minus size={14}/>
                 </BtnAmount>
-                <span>1</span>
+                <span>{props.amount}</span>
                 <BtnAmount>
                   <Plus size={14} />
                 </BtnAmount>

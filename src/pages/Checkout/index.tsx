@@ -25,10 +25,31 @@ import {
 
 import { ListSelectedCoffees } from "../../components/ListSelectedCoffees";
 import { Link } from "react-router-dom";
-import coffeeImg from "../../../public/imgCoffees/TypeExpresso.png";
+import { useCart } from "../../contexts/ListCartContext";
 
 
 export function Checkout() {
+  const { itemsForCart } = useCart();
+
+  const totalPrice = itemsForCart.reduce((acc, item) => {
+    
+    const AmountItem = item.amount * parseFloat(item.price.replace(",", "."));
+
+    return acc + AmountItem;
+  }, 0);
+
+  const totalPriceFrete = totalPrice > 0 ? totalPrice + 5.00 : 0;
+
+  const formattedTotalPrice = totalPrice.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+  const formattedTotalPriceFrete = totalPriceFrete.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+
 
   return (
     <CheckoutContainer>
@@ -162,30 +183,38 @@ export function Checkout() {
         <CheckoutSubTitle>Cafés selecionados</CheckoutSubTitle>
 
         <SelectedCoffeesContainer>
-          <ListSelectedCoffees
-            img={coffeeImg}
-            name="Café Expresso"
-            price="3,30"
-          
-          />
+          {itemsForCart.map((item) => {
+            return (
+              <ListSelectedCoffees
+                key={item.id}
+                id={item.id}
+                amount={item.amount}
+                img={item.img}
+                name={item.name}
+                price={item.price}
+              />
+              )
+            })
+          }
 
           <BoxValues>
             <BaseIndividualValues>
               <p>Total de itens</p>
-              <p>R$ 19,80</p>
+
+              <p>{formattedTotalPrice}</p>
             </BaseIndividualValues>
             <BaseIndividualValues>
               <p>Entrega</p>
-              <p>R$ 3,50</p>
+              <p>R$ 5,00</p>
             </BaseIndividualValues>
             <BaseValuesTotal>
               <p>Total</p>
-              <p>R$ 23,30</p>
+              <p>{formattedTotalPriceFrete}</p>
             </BaseValuesTotal>
           </BoxValues>
-          
+
           <Link to='/Success' title="Success">
-            <BtnConfirmOrder 
+            <BtnConfirmOrder
               type="submit">
               confirmar pedido
             </BtnConfirmOrder>

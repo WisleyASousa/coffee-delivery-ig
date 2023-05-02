@@ -3,8 +3,9 @@ import { ItemCard } from "../../components/ItemCard";
 import { HomeContainer, MenuContainer } from "./styles";
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from "react";
+import { useCart } from "../../contexts/ListCartContext";
 
-export interface itemForCart {
+export interface itemForCartDate {
   id: string;
   amount: number;
   img: string;
@@ -144,11 +145,11 @@ const ListDescCoffess = [
 
 
 export function Home() {
-  const [itemsForCart, setItemsForCart] = useState<itemForCart[]>([]);
+  // const [itemsForCart, setItemsForCart] = useState<itemForCartDate[]>([]);
 
-  
+  const { itemsForCart, setItemsForCart } = useCart();
 
-  function onAddToCart(item: itemForCart) {
+  function onAddToCart(item: itemForCartDate) {
     const newItem = {
       id: item.id,
       name: item.name,

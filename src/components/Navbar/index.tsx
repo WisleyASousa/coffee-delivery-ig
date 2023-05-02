@@ -2,13 +2,18 @@ import { AmountOfItemInCart, BtnCart, BtnLocation, CounterBox, NavbarContainer }
 import logo from "../../assets/logo.svg"
 import { MapPin, ShoppingCart } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import { useCart } from "../../contexts/ListCartContext";
+// import { itemsForCart } from "../../pages/Checkout";
 
-
-export const AmountCart = 0;
 
 export function Navbar() {
-
-
+  const { itemsForCart } = useCart();
+  
+  
+  const AmountCart = itemsForCart.reduce((acc, item) => {
+    return acc + item.amount;
+  }, 0);
+  
   return (
     <NavbarContainer>
       <Link to='/' title="Localização">
@@ -24,11 +29,9 @@ export function Navbar() {
         <CounterBox>
           <Link to='/Checkout' title="Checkout">
             <BtnCart>
-
-                  <AmountOfItemInCart>
-                    {AmountCart}
-                  </AmountOfItemInCart>
-
+              <AmountOfItemInCart>
+                {AmountCart}
+              </AmountOfItemInCart>
               <ShoppingCart size={22} />
             </BtnCart>
           </Link>
