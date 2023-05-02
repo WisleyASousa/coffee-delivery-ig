@@ -25,6 +25,7 @@ import {
 
 import { ListSelectedCoffees } from "../../components/ListSelectedCoffees";
 import { Link } from "react-router-dom";
+import coffeeImg from "../../../public/imgCoffees/TypeExpresso.png";
 
 
 export function Checkout() {
@@ -161,8 +162,12 @@ export function Checkout() {
         <CheckoutSubTitle>Cafés selecionados</CheckoutSubTitle>
 
         <SelectedCoffeesContainer>
-          <ListSelectedCoffees />
-          <ListSelectedCoffees />
+          <ListSelectedCoffees
+            img={coffeeImg}
+            name="Café Expresso"
+            price="3,30"
+          
+          />
 
           <BoxValues>
             <BaseIndividualValues>

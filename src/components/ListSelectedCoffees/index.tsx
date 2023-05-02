@@ -1,20 +1,23 @@
 import { ActionBoxSelected, BtnAmount, BtnRemove, ItemPriceBox, ItemRemoveBox, ListSelectedCoffeesContainer, ListSelectedCoffeesLine } from "./styles";
-
-import coffeeImg from "../../../public/imgCoffees/TypeExpresso.png";
-
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
 
-export function ListSelectedCoffees() {
+interface ListSelectedCoffeesProps {
+  img: string;
+  name: string;
+  price: string;
+}
+
+export function ListSelectedCoffees(props: ListSelectedCoffeesProps) {
   return (
       <>
         <ListSelectedCoffeesContainer>
           <div>
-            <img src={coffeeImg} width={64}/>
+            <img src={props.img} width={64}/>
           </div>
           <ActionBoxSelected>
             <ItemPriceBox>
-              <p>Expresso Tradicional</p>
-              <span>R$ 9,90</span>
+              <p>{props.name}</p>
+              <span>R$ {props.price}</span>
             </ItemPriceBox>
 
             <ItemRemoveBox>

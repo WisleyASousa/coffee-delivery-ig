@@ -2,8 +2,15 @@ import { Header } from "../../components/Header";
 import { ItemCard } from "../../components/ItemCard";
 import { HomeContainer, MenuContainer } from "./styles";
 import { v4 as uuidv4 } from 'uuid';
+import { useState } from "react";
 
-
+export interface itemForCart {
+  id: string;
+  amount: number;
+  img: string;
+  name: string;
+  price: string;
+}
 
 const ListDescCoffess = [
   {
@@ -134,7 +141,31 @@ const ListDescCoffess = [
   }
 ]
 
+
+
 export function Home() {
+  const [itemsForCart, setItemsForCart] = useState<itemForCart[]>([]);
+
+  
+
+  function onAddToCart(item: itemForCart) {
+    const newItem = {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      amount: item.amount,
+      img: item.img,
+    }
+    if(item.amount === 0){
+      return;
+    } else {
+      setItemsForCart((status) => [...status, newItem]);
+    }
+  }
+
+  console.log(itemsForCart);
+
+
   return (
       <HomeContainer>
         <Header />
@@ -151,6 +182,7 @@ export function Home() {
                   description={coffee.description}
                   price={coffee.price}
                   stock={coffee.stock}
+                  onAddToCart={onAddToCart}
                 />
               )
           })

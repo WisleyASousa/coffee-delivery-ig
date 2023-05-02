@@ -72,6 +72,29 @@ export const BtnCart = styled(BtnBase) `
     transition: all .2s ease-out;
 
   }
+`
+export const CounterBox = styled.div`
+  position: relative;
+  width: 100%;
+`
 
+export const AmountOfItemInCart = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: ${props => props.theme['yellowDark']};
+  color: ${props => props.theme['white']};
+
+  position: absolute;
+  left: 30px;
+  bottom: 25px;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.3;
 
 `
