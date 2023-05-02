@@ -145,13 +145,13 @@ const ListDescCoffess = [
 
 
 export function Home() {
-  // const [itemsForCart, setItemsForCart] = useState<itemForCartDate[]>([]);
 
   const { itemsForCart, setItemsForCart } = useCart();
 
   function onAddToCart(item: itemForCartDate) {
     const newItem = {
-      id: item.id,
+      id: uuidv4(),
+      idItem: item.id,
       name: item.name,
       price: item.price,
       amount: item.amount,
@@ -175,7 +175,7 @@ export function Home() {
           {ListDescCoffess.map(coffee => {
             return (
                 <ItemCard
-                  key={coffee.name}
+                  key={coffee.id}
                   id={coffee.id}
                   img={coffee.img}
                   tags={coffee.tags}

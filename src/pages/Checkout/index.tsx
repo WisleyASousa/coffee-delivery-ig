@@ -26,11 +26,27 @@ import {
 import { ListSelectedCoffees } from "../../components/ListSelectedCoffees";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/ListCartContext";
+import { useEffect, useState } from "react";
 
 
 export function Checkout() {
-  const { itemsForCart } = useCart();
+  const { itemsForCart, setItemsForCart } = useCart();
+  
+  // function addAmountItemCart() {
+  //   const AmountMore = itemsForCart.map(item => {
+  //     return {
+  //       ...item,
+  //       amount: item.amount = item.amount + 1
+  //     }
+  //   })
 
+  //   console.log(AmountMore)
+  // }
+
+
+
+
+  
   const totalPrice = itemsForCart.reduce((acc, item) => {
     
     const AmountItem = item.amount * parseFloat(item.price.replace(",", "."));
@@ -48,6 +64,17 @@ export function Checkout() {
     style: "currency",
     currency: "BRL",
   });
+
+  function deleteItem(itemDelete: string) {
+    const itemToDelete = itemsForCart.filter(item => {
+      return item.id !== itemDelete
+    })
+
+    setItemsForCart(itemToDelete);
+    console.log(itemToDelete)
+
+  }
+
 
 
 
@@ -192,6 +219,8 @@ export function Checkout() {
                 img={item.img}
                 name={item.name}
                 price={item.price}
+                onDeleteItem={deleteItem}
+                // onAmountItemMore={addAmountItemCart}
               />
               )
             })

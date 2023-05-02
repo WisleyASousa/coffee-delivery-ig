@@ -7,9 +7,22 @@ interface ListSelectedCoffeesProps {
   name: string;
   price: string;
   amount: number;
+  onAmountItemMore: (itemsForCart: string) => void;
+  onDeleteItem: (itemsForCart: string) => void;
 }
 
 export function ListSelectedCoffees(props: ListSelectedCoffeesProps) {
+
+  function handleDeleteItem() {
+    props.onDeleteItem(props.id);
+  }
+
+  function handleAmountCartMore() {
+    props.onAmountItemMore(props.id);
+  }
+
+
+
   return (
       <>
         <ListSelectedCoffeesContainer>
@@ -25,16 +38,25 @@ export function ListSelectedCoffees(props: ListSelectedCoffeesProps) {
             <ItemRemoveBox>
 
               <div>
-                <BtnAmount>
+                <BtnAmount
+                  type="button"
+                  onClick={handleAmountCartMore}
+                >
                   <Minus size={14}/>
                 </BtnAmount>
                 <span>{props.amount}</span>
-                <BtnAmount>
+                <BtnAmount
+                  onClick={handleAmountCartMore}
+                  type="button"
+                >
                   <Plus size={14} />
                 </BtnAmount>
               </div>
 
-              <BtnRemove>
+              <BtnRemove
+                type="button"
+                onClick={handleDeleteItem}
+              >
                 <Trash size={16} />
                 remover
               </BtnRemove>
