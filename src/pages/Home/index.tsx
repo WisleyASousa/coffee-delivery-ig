@@ -2,7 +2,7 @@ import { Header } from "../../components/Header";
 import { ItemCard } from "../../components/ItemCard";
 import { FilterBox, HomeContainer, MenuContainer } from "./styles";
 import { v4 as uuidv4 } from 'uuid';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useCart } from "../../contexts/ListCartContext";
 
 export interface itemForCartDate {
@@ -13,7 +13,7 @@ export interface itemForCartDate {
   price: string;
 }
 
-interface ListDescCoffeesProps {
+/*interface ListDescCoffeesProps {
   id: string;
   img: string;
   tags: string[];
@@ -21,7 +21,7 @@ interface ListDescCoffeesProps {
   description: string;
   price: string;
   stock: number;
-}
+}*/
 
 const ListDescCoffeesdefault = [
   {
@@ -141,17 +141,17 @@ const ListDescCoffeesdefault = [
 
 
 export function Home() {
-  // const [listDescCoffeesdefault, setListDescCoffeesdefault] = useState<ListDescCoffeesProps[]>([]);
+  /*const [listDescCoffeesdefault, setListDescCoffeesdefault] = useState<ListDescCoffeesProps[]>([]);*/
 
   const { itemsForCart, setItemsForCart } = useCart();
 
-  // useEffect(() => {
-  //   fetch('/coffeesDate.json')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setListDescCoffeesdefault(data);
-  //     });
-  // }, []);
+  /*useEffect(() => {
+    fetch('/coffeesDate.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setListDescCoffeesdefault(data);
+      });
+  }, []);*/
   
   function onAddToCart(item: itemForCartDate) {
     const newItem = {
