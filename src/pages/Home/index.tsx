@@ -25,7 +25,7 @@ interface ListDescCoffeesProps {
 
 const ListDescCoffeesdefault = [
   {
-      id: uuidv4(),
+      id: "1",
       img: "../../../public/imgCoffees/TypeExpresso.png",
       tags: ["tradicional"],
       name: "Expresso Tradicional",
@@ -33,7 +33,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "2",
       img: "../../../public/imgCoffees/Type=Americano.png",
       tags: ["tradicional"],
       name: "Expresso Americano",
@@ -41,7 +41,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "3",
       img: "../../../public/imgCoffees/Type=ExpressoCremoso.png",
       tags: ["tradicional"],
       name: "Expresso Cremoso",
@@ -49,7 +49,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "4",
       img: "../../../public/imgCoffees/Type=CaféGelado.png",
       tags: ["tradicional", "gelado"],
       name: "Expresso Gelado",
@@ -57,7 +57,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "5",
       img: "../../../public/imgCoffees/Type=CafécomLeite.png",
       tags: ["tradicional", "com leite"],
       name: "Café com Leite",
@@ -65,7 +65,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "6",
       img: "../../../public/imgCoffees/Type=Latte.png",
       tags: ["tradicional", "com leite"],
       name: "Latte",
@@ -73,7 +73,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "7",
       img: "../../../public/imgCoffees/Type=Capuccino.png",
       tags: ["tradicional", "com leite"],
       name: "Capuccino",
@@ -81,7 +81,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "8",
       img: "../../../public/imgCoffees/Type=Macchiato.png",
       tags: ["tradicional", "com leite"],
       name: "Macchiato",
@@ -89,7 +89,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "9",
       img: "../../../public/imgCoffees/Type=Mochaccino.png",
       tags: ["tradicional", "com leite"],
       name: "Mocaccino",
@@ -97,7 +97,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "10",
       img: "../../../public/imgCoffees/Type=ChocolateQuente.png",
       tags: ["especial", "com leite"],
       name: "Chocolate Quente",
@@ -105,7 +105,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "11",
       img: "../../../public/imgCoffees/Type=Cubano.png",
       tags: ["especial", "gelado", "alcoólico"],
       name: "Cubano",
@@ -113,7 +113,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "12",
       img: "../../../public/imgCoffees/Type=Havaiano.png",
       tags: ["especial"],
       name: "Havaiano",
@@ -121,7 +121,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "13",
       img: "../../../public/imgCoffees/Type=arabe.png",
       tags: ["especial"],
       name: "Árabe",
@@ -129,7 +129,7 @@ const ListDescCoffeesdefault = [
       price: "9,90",
   },
   {
-      id: uuidv4(),
+      id: "14",
       img: "../../../public/imgCoffees/Type=Irlandes.png",
       tags: ["especial", "alcoólico"],
       name: "Irlandês",
