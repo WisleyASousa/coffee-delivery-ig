@@ -160,7 +160,7 @@ export function Home() {
   const { itemsForCart, setItemsForCart } = useCart();
 
   useEffect(() => {
-    fetch('../../../coffeesDate.json')
+    fetch('/coffeesDate.json')
       .then((response) => response.json())
       .then((data) => {
         setListDescCoffeesdefault(data);
