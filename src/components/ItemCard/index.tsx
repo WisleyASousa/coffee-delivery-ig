@@ -15,12 +15,11 @@ interface ItemCardProps {
   name: string;
   description: string;
   price: string;
-  stock: number;
   onAddToCart: (item: itemForCartDate) => void;
   
 }
 
-export function ItemCard({ id, img, tags, name, description,  price, stock, onAddToCart }: ItemCardProps) {
+export function ItemCard({ id, img, tags, name, description,  price, onAddToCart }: ItemCardProps) {
 
   const [countCartItems, setCountCartItems] = useState(0);
 

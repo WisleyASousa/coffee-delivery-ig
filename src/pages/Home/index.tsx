@@ -210,7 +210,6 @@ export function Home() {
                   name={coffee.name}
                   description={coffee.description}
                   price={coffee.price}
-                  stock={coffee.stock}
                   onAddToCart={onAddToCart}
                 />
               )
