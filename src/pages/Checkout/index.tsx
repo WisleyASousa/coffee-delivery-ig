@@ -32,21 +32,6 @@ import { useEffect, useState } from "react";
 export function Checkout() {
   const { itemsForCart, setItemsForCart } = useCart();
   
-  // function addAmountItemCart() {
-  //   const AmountMore = itemsForCart.map(item => {
-  //     return {
-  //       ...item,
-  //       amount: item.amount = item.amount + 1
-  //     }
-  //   })
-
-  //   console.log(AmountMore)
-  // }
-
-
-
-
-  
   const totalPrice = itemsForCart.reduce((acc, item) => {
     
     const AmountItem = item.amount * parseFloat(item.price.replace(",", "."));
@@ -71,11 +56,36 @@ export function Checkout() {
     })
 
     setItemsForCart(itemToDelete);
-    console.log(itemToDelete)
-
   }
 
+  function addAmountItemCart() {
+    const AmountMore = itemsForCart.map(item => {
+      return {
+        ...item,
+        amount: item.amount + 1
+      }
+    })
 
+    setItemsForCart(AmountMore);
+  }
+
+  function removeAmountItemCart() {
+    const AmountLess = itemsForCart.map(item => {
+      if(item.amount > 0) {
+        return {
+          ...item,
+          amount: item.amount - 1
+        }
+      }else {
+        return {
+          ...item,
+          amount: item.amount = 0
+        }
+      }
+    })
+    setItemsForCart(AmountLess);
+
+  }
 
 
   return (
@@ -220,7 +230,8 @@ export function Checkout() {
                 name={item.name}
                 price={item.price}
                 onDeleteItem={deleteItem}
-                // onAmountItemMore={addAmountItemCart}
+                onAmountItemMore={addAmountItemCart}
+                onAmountItemLess={removeAmountItemCart}
               />
               )
             })
