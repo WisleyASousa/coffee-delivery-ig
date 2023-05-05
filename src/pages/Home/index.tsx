@@ -174,8 +174,6 @@ export function Home() {
   }
 
   useEffect(() => {
-    // console.log(addToCartCalled);
-
     if (addToCartCalled) {
       const timer = setTimeout(() => {
         setAddToCartCalled(false);
