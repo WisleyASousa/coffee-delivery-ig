@@ -11,17 +11,15 @@ export const ItemCardContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45);
 
   `
 export const ImgContainer = styled.div`
-  /* position: absolute; */
-
   img {
-    /* position: absolute; */
     width: 120px;
     height: 120px;
     left: calc(50% - 120px/2);
-    /* top: -70px; */
+
   }  
 `
 export const BoxTags = styled.div`
@@ -143,6 +141,8 @@ export const ButtonCart = styled.button`
   background: ${props => props.theme['purpleDark']};
   color: ${props => props.theme['baseCard']};
   transition: all .2s ease-out;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+
 
   &:hover {
       background: ${props => props.theme['purple']}; 
@@ -241,6 +241,7 @@ export const BoxWarningAddInCart = styled.div`
   background: ${props => props.theme['red']};
   color: ${props => props.theme['white']};
   gap: 0.5rem;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45);
 
 
 `

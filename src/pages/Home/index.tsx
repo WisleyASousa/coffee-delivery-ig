@@ -154,7 +154,6 @@ export function Home() {
       });
   }, []);*/
 
-  // console.log(itemsForCart.length);
   const [addToCartCalled, setAddToCartCalled] = useState(false);
   
   function onAddToCart(item: itemForCartDate) {
@@ -174,34 +173,22 @@ export function Home() {
     }
   }
 
-  const [addItemCurrent, setAddItemCurrent] = useState(true);
-  
-
-  // exemplo
   useEffect(() => {
-    
-    const timer = setTimeout(() => {
-      if (addToCartCalled) {
-        setAddItemCurrent(true);
-        
-      } else {
-        setAddItemCurrent(false);
+    // console.log(addToCartCalled);
 
-      } 
-    }, 1500);
-      return () => {
-        clearTimeout(timer)
+    if (addToCartCalled) {
+      const timer = setTimeout(() => {
+        setAddToCartCalled(false);
+      }, 1500);
 
-        setAddItemCurrent(true);
-
-      };
-    }, [addToCartCalled]);
-  
+      return () => clearTimeout(timer);
+    }
+  }, [addToCartCalled]);
 
   return (
       <HomeContainer>
         {
-          addItemCurrent && (
+          addToCartCalled && (
             itemsForCart.slice(-1)[0] &&
             <BoxWarningAddInCart>
               <strong>Adicionado ao Carrinho!</strong>

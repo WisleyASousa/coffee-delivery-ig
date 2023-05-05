@@ -47,7 +47,7 @@ const BtnBase = styled.div `
   cursor: pointer;
   border-radius: 8px;
   border: 1px solid transparent;
-
+  
 `
 
 export const BtnLocation = styled(BtnBase) `
