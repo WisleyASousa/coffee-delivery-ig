@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from "react";
 import { useCart } from "../../contexts/ListCartContext";
 import { BoxWarningAddInCart } from "../../components/ItemCard/styles";
-import { Check } from "@phosphor-icons/react";
 
 export interface itemForCartDate {
   id: string;
