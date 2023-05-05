@@ -169,6 +169,7 @@ export function Home() {
       return;
     } else {
       setItemsForCart((status) => [...status, newItem]);
+      
     }
   }
 
@@ -176,8 +177,9 @@ export function Home() {
 
   // exemplo
   useEffect(() => {
+    
     const timer = setTimeout(() => {
-      if(itemsForCart.length > 0){
+      if(itemsForCart.length != 0){
         setAddItemCurrent(false);
         
       } else {

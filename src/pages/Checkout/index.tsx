@@ -57,33 +57,39 @@ export function Checkout() {
     setItemsForCart(itemToDelete);
   }
 
-  function addAmountItemCart() {
-    const AmountMore = itemsForCart.map(item => {
-      return {
-        ...item,
-        amount: item.amount + 1
+  function addAmountItemCart(itemId: string) {
+    const updatedItems = itemsForCart.map(item => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          amount: item.amount + 1
+        };
       }
-    })
-
-    setItemsForCart(AmountMore);
+      return item;
+    });
+  
+    setItemsForCart(updatedItems);
   }
 
-  function removeAmountItemCart() {
+  function removeAmountItemCart(itemId: string) {
     const AmountLess = itemsForCart.map(item => {
-      if(item.amount > 0) {
-        return {
-          ...item,
-          amount: item.amount - 1
-        }
-      }else {
-        return {
-          ...item,
-          amount: item.amount = 0
+      if(item.id === itemId) {
+        if(item.amount > 0) {
+          return {
+            ...item,
+            amount: item.amount - 1
+          }
+        }else {
+          return {
+            ...item,
+            amount: item.amount = 0
+          }
         }
       }
-    })
-    setItemsForCart(AmountLess);
-
+      return item;
+    }
+  ) 
+  setItemsForCart(AmountLess);
   }
 
 
