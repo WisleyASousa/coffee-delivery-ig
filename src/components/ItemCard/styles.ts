@@ -148,3 +148,99 @@ export const ButtonCart = styled.button`
       background: ${props => props.theme['purple']}; 
     }
 `
+
+export const WarningBox = styled.div`
+  position: relative;
+  left: -12px;
+
+  animation: identifier 0.5s ease-in-out;
+  
+
+  @keyframes identifier {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  div {
+    position: absolute;
+    top:-20px;
+    left: 21px;
+    color: ${props => props.theme['red']};
+    
+  }
+
+  div {
+    position: absolute;
+    top:-20px;
+    left: 21px;
+    color: ${props => props.theme['red']};
+    
+  }
+  p {
+    display: flex;
+    align-items: center;
+    background: ${props => props.theme['red']};
+    color: ${props => props.theme['white']};
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    left: -20px;
+    top: 5px;
+    position: absolute;
+
+    button {
+      background: inherit;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      
+  }
+  }	
+`
+
+
+export const BoxWarningAddInCart = styled.div`
+  border: 1px solid ${props => props.theme['yellowDark']};
+  border-radius: 10px;
+  padding: 1rem 0.8rem;
+  position: absolute;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  animation: slideIn 0.5s forwards;
+
+
+
+  @keyframes slideIn {
+  from {
+    transform: translateY(-50%)scale(0.8);
+  }
+  to {
+    transform: translateY(-50)scale(1);
+  }
+  }
+
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  line-height: 1.3;
+  font-size: 1.3rem;
+  background: ${props => props.theme['red']};
+  color: ${props => props.theme['white']};
+  gap: 0.5rem;
+
+
+`

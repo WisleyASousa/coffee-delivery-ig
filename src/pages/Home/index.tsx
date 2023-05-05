@@ -2,8 +2,10 @@ import { Header } from "../../components/Header";
 import { ItemCard } from "../../components/ItemCard";
 import { FilterBox, HomeContainer, MenuContainer } from "./styles";
 import { v4 as uuidv4 } from 'uuid';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../../contexts/ListCartContext";
+import { BoxWarningAddInCart } from "../../components/ItemCard/styles";
+import { Check } from "@phosphor-icons/react";
 
 export interface itemForCartDate {
   id: string;
@@ -152,6 +154,8 @@ export function Home() {
         setListDescCoffeesdefault(data);
       });
   }, []);*/
+
+  // console.log(itemsForCart.length);
   
   function onAddToCart(item: itemForCartDate) {
     const newItem = {
@@ -169,17 +173,38 @@ export function Home() {
     }
   }
 
+  const [addItemCurrent, setAddItemCurrent] = useState(true);
+
   // exemplo
   useEffect(() => {
-    if(itemsForCart.length > 0) {
-      console.log(itemsForCart);
-    }
-  }, [itemsForCart]);
+    const timer = setTimeout(() => {
+      if(itemsForCart.length > 0){
+        setAddItemCurrent(false);
+        
+      } else {
+        setAddItemCurrent(true);
 
+      } 
+    }, 1500);
+      return () => {
+        clearTimeout(timer)
 
+        setAddItemCurrent(true);
+
+      };
+    }, [itemsForCart]);
+  
 
   return (
       <HomeContainer>
+        {
+          addItemCurrent && (
+            itemsForCart.slice(-1)[0] &&
+            <BoxWarningAddInCart>
+              <strong>Adicionado ao Carrinho!</strong>
+            </BoxWarningAddInCart>
+          )
+        }
         <Header />
         <FilterBox>
           <h3>Nossos Cafés</h3>

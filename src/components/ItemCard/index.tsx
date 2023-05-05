@@ -1,9 +1,7 @@
-import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
-import { ActionContainer, BoxTags, ButtonCart, ImgContainer, ItemCardContainer, ItemDescription, ItemTitle, QuantityToBuy, TagsName } from "./styles";
+import { ArrowFatLinesUp, Minus, Plus, ShieldWarning, ShoppingCart } from "@phosphor-icons/react";
+import { ActionContainer, BoxTags, ButtonCart, ImgContainer, ItemCardContainer, ItemDescription, ItemTitle, QuantityToBuy, TagsName, WarningBox} from "./styles";
 import { useState } from "react";
 import { itemForCartDate } from "../../pages/Home";
-
-// import expresso from "../../assets/imgCoffees/TypeExpresso.png"
 
 
 
@@ -21,7 +19,7 @@ interface ItemCardProps {
 
 export function ItemCard({ id, img, tags, name, description,  price, onAddToCart }: ItemCardProps) {
 
-  const [countCartItems, setCountCartItems] = useState(0);
+  const [countCartItems, setCountCartItems] = useState(1);
 
   function handleAmountCartLess() {
     if (countCartItems >= 1) {
@@ -40,6 +38,7 @@ export function ItemCard({ id, img, tags, name, description,  price, onAddToCart
   }
 
   function handleAddItemCart() {
+    
 
     onAddToCart({
       id,
@@ -48,9 +47,8 @@ export function ItemCard({ id, img, tags, name, description,  price, onAddToCart
       name,
       price
     })
-  }
 
-  // console.log(itemsForCart)
+  }
 
   return (
       <ItemCardContainer>
@@ -84,19 +82,32 @@ export function ItemCard({ id, img, tags, name, description,  price, onAddToCart
               </span>
               <button
                 onClick={handleAmountCartMore}
-              >
+                >
                 <Plus size={14} />
               </button>
 
             </QuantityToBuy>
             <ButtonCart 
+              // disabled
+              title="Adicionar ao carrinho"
               type="button"
               onClick={handleAddItemCart}
-            >
+              >
               <ShoppingCart size={22}/>
             </ButtonCart>
           </div>
         </ActionContainer>
+        {countCartItems === 0 && (<WarningBox>
+          <div>
+            <ArrowFatLinesUp size={25} />
+          </div>
+          <p>
+            <button type="button" title="Não pode adicionar 0 itens no carrinho">
+              <ShieldWarning size={18} />
+              Atenção
+            </button>
+          </p>
+        </WarningBox>)}
       </ItemCardContainer>
     )
 }

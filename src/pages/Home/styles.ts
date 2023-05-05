@@ -31,6 +31,7 @@ export const FilterBox = styled.div`
     
     &:hover {
       color: ${props => props.theme['yellow'] };
+      transition: all .2s ease-out;
       
     }
   }
