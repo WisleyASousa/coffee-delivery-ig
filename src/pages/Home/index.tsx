@@ -155,6 +155,7 @@ export function Home() {
   }, []);*/
 
   // console.log(itemsForCart.length);
+  const [addToCartCalled, setAddToCartCalled] = useState(false);
   
   function onAddToCart(item: itemForCartDate) {
     const newItem = {
@@ -169,21 +170,22 @@ export function Home() {
       return;
     } else {
       setItemsForCart((status) => [...status, newItem]);
-      
+      setAddToCartCalled(true);
     }
   }
 
   const [addItemCurrent, setAddItemCurrent] = useState(true);
+  
 
   // exemplo
   useEffect(() => {
     
     const timer = setTimeout(() => {
-      if(itemsForCart.length != 0){
-        setAddItemCurrent(false);
+      if (addToCartCalled) {
+        setAddItemCurrent(true);
         
       } else {
-        setAddItemCurrent(true);
+        setAddItemCurrent(false);
 
       } 
     }, 1500);
@@ -193,7 +195,7 @@ export function Home() {
         setAddItemCurrent(true);
 
       };
-    }, [itemsForCart]);
+    }, [addToCartCalled]);
   
 
   return (
