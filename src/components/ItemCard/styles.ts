@@ -19,6 +19,16 @@ export const ImgContainer = styled.div`
     width: 120px;
     height: 120px;
     left: calc(50% - 120px/2);
+    animation: spin 2s alternate;
+    
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
   }  
 `

@@ -7,7 +7,7 @@ import { BtnSidebar } from "../Sidebar/styles";
 
 
 export function Navbar() {
-  const { itemsForCart, setActiveSidebar, activeSidebar  } = useCart();
+  const { itemsForCart, setActiveSidebar, activeSidebar, handleActiveSidebar  } = useCart();
   
   
   const AmountCart = itemsForCart.reduce((acc, item) => {
@@ -16,10 +16,7 @@ export function Navbar() {
   
   const location = useLocation();
 
-  function handleActiveSidebar() {
-    setActiveSidebar(!activeSidebar);
-    
-  }
+ 
 
 
   return (

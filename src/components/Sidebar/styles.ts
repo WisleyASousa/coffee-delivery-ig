@@ -46,7 +46,6 @@ export const SidebarContainer = styled.div<SidebarContainerProps>`
 
 
   h3 {
-    text-align: center;
     font-family: 'Baloo 2', cursive;
     font-weight: 700;
     font-size: 1.3rem;
@@ -70,7 +69,33 @@ export const SidebarContainer = styled.div<SidebarContainerProps>`
     }
   } */
 `
+export const BoxTitleBtnSidebar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  button {
+    border: none;
+    color: ${props => props.theme['baseLabel']};
+    cursor: pointer;
+
+    &:hover{
+      color: ${props => props.theme['baseSubtitle']};
+    }
+  }
+  @media (max-width: 425px) {
+    width: 280px;
+    display: flex;
+    
+    padding: 0 1rem;
+
+    button{
+      display: flex;
+    }
+    
+  }
+
+`
 
 export const ItemListBoxSidebar = styled.div`
   display: flex;
@@ -80,7 +105,7 @@ export const ItemListBoxSidebar = styled.div`
 
 export const BtnSidebar = styled.button`
 
-
+  
   display: flex;
   padding: 0.2rem 0.5rem;
   align-items: center;
@@ -92,9 +117,26 @@ export const BtnSidebar = styled.button`
   color: ${props => props.theme['white']}; 
   cursor: pointer;
 
+  svg {
+    /* transition: transform 1s ease-in-out; */
+    animation: spin 1s alternate;
+  }
+  
+
+  
+  
+@keyframes spin {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
   &:hover {
     background: ${props => props.theme['yellowDark']};
-    transition: all .2s ease-out;  
+    transform: rotate(360deg);  
 
   }
   @media (max-width: 425px) {
