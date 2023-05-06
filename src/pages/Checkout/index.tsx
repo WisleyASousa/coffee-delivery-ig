@@ -29,68 +29,11 @@ import { useCart } from "../../contexts/ListCartContext";
 
 
 export function Checkout() {
-  const { itemsForCart, setItemsForCart } = useCart();
+  const { itemsForCart, formattedTotalPrice, formattedTotalPriceFrete, deleteItem, addAmountItemCart, removeAmountItemCart } = useCart();
   
-  const totalPrice = itemsForCart.reduce((acc, item) => {
-    
-    const AmountItem = item.amount * parseFloat(item.price.replace(",", "."));
-
-    return acc + AmountItem;
-  }, 0);
-
-  const totalPriceFrete = totalPrice > 0 ? totalPrice + 5.00 : 0;
-
-  const formattedTotalPrice = totalPrice.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
-  const formattedTotalPriceFrete = totalPriceFrete.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
-
-  function deleteItem(itemDelete: string) {
-    const itemToDelete = itemsForCart.filter(item => {
-      return item.id !== itemDelete
-    })
-
-    setItemsForCart(itemToDelete);
-  }
-
-  function addAmountItemCart(itemId: string) {
-    const updatedItems = itemsForCart.map(item => {
-      if (item.id === itemId) {
-        return {
-          ...item,
-          amount: item.amount + 1
-        };
-      }
-      return item;
-    });
   
-    setItemsForCart(updatedItems);
-  }
 
-  function removeAmountItemCart(itemId: string) {
-    const AmountLess = itemsForCart.map(item => {
-      if(item.id === itemId) {
-        if(item.amount > 0) {
-          return {
-            ...item,
-            amount: item.amount - 1
-          }
-        }else {
-          return {
-            ...item,
-            amount: item.amount = 0
-          }
-        }
-      }
-      return item;
-    }
-  ) 
-  setItemsForCart(AmountLess);
-  }
+
 
 
   return (

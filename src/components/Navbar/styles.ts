@@ -86,7 +86,7 @@ export const AmountOfItemInCart = styled.div`
   color: ${props => props.theme['white']};
 
   position: absolute;
-  left: 30px;
+  left: 65px;
   bottom: 25px;
 
 
@@ -96,5 +96,21 @@ export const AmountOfItemInCart = styled.div`
   font-weight: 700;
   font-size: 0.75rem;
   line-height: 1.3;
+
+`
+export const BtnHome = styled.button`
+  background: ${props => props.theme['yellowLight']};
+  color: ${props => props.theme['yellowDark']};
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid ${props => props.theme['yellowDark']};
+    transition: all .2s ease-out;
+
+  }
+  width: 74px;
+  height: 38.38px;
+  padding: 0.2rem 0.5rem;
 
 `

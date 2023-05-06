@@ -1,19 +1,27 @@
-import { AmountOfItemInCart, BtnCart, BtnLocation, CounterBox, NavbarContainer } from "./styles";
+import { AmountOfItemInCart, BtnHome, BtnLocation, CounterBox, NavbarContainer } from "./styles";
 import logo from "../../assets/logo.svg"
-import { MapPin, ShoppingCart } from "@phosphor-icons/react";
-import { Link } from "react-router-dom";
+import { ArrowLeft, ArrowRight, MapPin, ShoppingCart } from "@phosphor-icons/react";
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../contexts/ListCartContext";
-// import { itemsForCart } from "../../pages/Checkout";
+import { BtnSidebar } from "../Sidebar/styles";
 
 
 export function Navbar() {
-  const { itemsForCart } = useCart();
+  const { itemsForCart, setActiveSidebar, activeSidebar  } = useCart();
   
   
   const AmountCart = itemsForCart.reduce((acc, item) => {
     return acc + item.amount;
   }, 0);
   
+  const location = useLocation();
+
+  function handleActiveSidebar() {
+    setActiveSidebar(!activeSidebar);
+    
+  }
+
+
   return (
     <NavbarContainer>
       <Link to='/' title="Localização">
@@ -27,14 +35,31 @@ export function Navbar() {
           </BtnLocation>
         </Link>
         <CounterBox>
-          <Link to='/Checkout' title="Checkout">
-            <BtnCart>
+          
+            {location.pathname === '/' ? (
+            <>
+              <BtnSidebar  type="button" onClick={handleActiveSidebar}>
+
+                {activeSidebar ? (<ArrowRight size={32} />) : (<ArrowLeft size={32} />)}
+                  <ShoppingCart size={26} />
+
+              </BtnSidebar>
+
               <AmountOfItemInCart>
                 {AmountCart}
               </AmountOfItemInCart>
-              <ShoppingCart size={22} />
-            </BtnCart>
-          </Link>
+            </>) : (
+            <>
+              <Link to='/' title="Inicio">
+                <BtnHome
+                  type="button"
+                  onClick={handleActiveSidebar}
+                >
+                  Inicio
+                </BtnHome>
+              </Link>
+            </>
+            )}
         </CounterBox>
       </nav>
     </NavbarContainer>

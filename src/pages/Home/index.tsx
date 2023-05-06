@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from "react";
 import { useCart } from "../../contexts/ListCartContext";
 import { BoxWarningAddInCart } from "../../components/ItemCard/styles";
+import { Sidebar } from "../../components/Sidebar";
 
 export interface itemForCartDate {
   id: string;
@@ -144,7 +145,7 @@ const ListDescCoffeesdefault = [
 export function Home() {
   /*const [listDescCoffeesdefault, setListDescCoffeesdefault] = useState<ListDescCoffeesProps[]>([]);*/
 
-  const { itemsForCart, setItemsForCart } = useCart();
+  const { itemsForCart, setItemsForCart, activeSidebar} = useCart();
 
   /*useEffect(() => {
     fetch('/coffeesDate.json')
@@ -177,14 +178,18 @@ export function Home() {
     if (addToCartCalled) {
       const timer = setTimeout(() => {
         setAddToCartCalled(false);
-      }, 1500);
+      }, 800);
 
       return () => clearTimeout(timer);
     }
   }, [addToCartCalled]);
 
+
+
   return (
-      <HomeContainer>
+    <HomeContainer>
+        {activeSidebar && <Sidebar />}
+
         {
           addToCartCalled && (
             itemsForCart.slice(-1)[0] &&
