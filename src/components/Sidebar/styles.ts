@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 
-interface SidebarContainerProps {
-  isOpen: boolean;
+interface SidebarProps {
+  show: boolean;
 }
 
 const inAnimation = keyframes`
@@ -26,7 +26,7 @@ const outAnimation = keyframes`
   }
 `;
 
-export const SidebarContainer = styled.div<SidebarContainerProps>`
+export const SidebarContainer = styled.div<SidebarProps>`
   position: absolute;
   position: fixed;
   right: 0;
@@ -39,10 +39,10 @@ export const SidebarContainer = styled.div<SidebarContainerProps>`
   flex-direction: column;
   gap: 1rem;
   border: 1px solid ${props => props.theme['yellowDark']};
-  animation: ${inAnimation} 0.5s ease-in-out;
-  ${props => props.isOpen && css`
-    animation: ${outAnimation} 0.5s ease-in-out;
-  `}
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-name: ${props => (props.show ? outAnimation : inAnimation)};
+
 
 
   h3 {
@@ -57,18 +57,10 @@ export const SidebarContainer = styled.div<SidebarContainerProps>`
     align-items: center;
     
   }
-/* 
-  @keyframes in {
-    0% {
-      opacity: 0;
-      transform: translateX(100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  } */
+
 `
+
+
 export const BoxTitleBtnSidebar = styled.div`
   display: flex;
   align-items: center;
@@ -118,7 +110,6 @@ export const BtnSidebar = styled.button`
   cursor: pointer;
 
   svg {
-    /* transition: transform 1s ease-in-out; */
     animation: spin 1s alternate;
   }
   

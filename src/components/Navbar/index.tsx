@@ -25,7 +25,7 @@ export function Navbar() {
         <img src={logo} alt="" />
       </Link>
       <nav>
-        <Link to='/' title="Localização">
+        <Link to='/Checkout' title="Localização">
           <BtnLocation>
             <MapPin size={22} />
             Porto Alegre, RS

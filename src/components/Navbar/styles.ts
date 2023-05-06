@@ -104,6 +104,7 @@ export const BtnHome = styled.button`
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  white-space: nowrap;
   &:hover {
     border: 1px solid ${props => props.theme['yellowDark']};
     transition: all .2s ease-out;

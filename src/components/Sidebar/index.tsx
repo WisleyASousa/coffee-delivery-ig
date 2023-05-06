@@ -7,14 +7,13 @@ import { X } from "@phosphor-icons/react";
 
 
 export function Sidebar() {
-  const { itemsForCart, formattedTotalPrice, formattedTotalPriceFrete, deleteItem, addAmountItemCart, removeAmountItemCart, handleActiveSidebar } = useCart();
+  const { itemsForCart, formattedTotalPrice, formattedTotalPriceFrete, deleteItem, addAmountItemCart, removeAmountItemCart, handleActiveSidebar, showSidebar } = useCart();
   
-
   
   return (
     <>
       <SidebarContainer
-        isOpen={false}
+        show={showSidebar}
       >
         <BoxTitleBtnSidebar>
           <h3>Cafés Selecionados</h3>
