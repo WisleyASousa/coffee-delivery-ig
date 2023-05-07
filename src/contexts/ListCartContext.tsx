@@ -12,7 +12,6 @@ interface CartContextData {
   activeSidebar: boolean;
   setActiveSidebar: React.Dispatch<React.SetStateAction<boolean>>;
   handleActiveSidebar: () => void;
-  showSidebar: boolean;
 }
 
 interface CartProviderProps {
@@ -25,11 +24,9 @@ const CartContext = createContext<CartContextData>({} as CartContextData);
 export function CartProvider({ children }: CartProviderProps) {
   const [itemsForCart, setItemsForCart] = useState<itemForCartDate[]>([]);
   const [activeSidebar, setActiveSidebar] = useState(false);
-  const [showSidebar, setShowSidebar] = useState(false);
 
   function handleActiveSidebar() {
     setActiveSidebar(!activeSidebar);
-    setShowSidebar(!true)
     
   }
 
@@ -96,7 +93,7 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   return (
-    <CartContext.Provider value={{ itemsForCart, setItemsForCart, formattedTotalPrice, formattedTotalPriceFrete, deleteItem, addAmountItemCart, removeAmountItemCart, activeSidebar, setActiveSidebar, handleActiveSidebar, showSidebar }}>
+    <CartContext.Provider value={{ itemsForCart, setItemsForCart, formattedTotalPrice, formattedTotalPriceFrete, deleteItem, addAmountItemCart, removeAmountItemCart, activeSidebar, setActiveSidebar, handleActiveSidebar }}>
       {children}
     </CartContext.Provider>
   );

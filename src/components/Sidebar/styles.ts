@@ -1,32 +1,7 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-interface SidebarProps {
-  show: boolean;
-}
 
-const inAnimation = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
-
-const outAnimation = keyframes`
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-`;
-
-export const SidebarContainer = styled.div<SidebarProps>`
+export const SidebarContainer = styled.div`
   position: absolute;
   position: fixed;
   right: 0;
@@ -39,9 +14,17 @@ export const SidebarContainer = styled.div<SidebarProps>`
   flex-direction: column;
   gap: 1rem;
   border: 1px solid ${props => props.theme['yellowDark']};
-  animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
-  animation-name: ${props => (props.show ? outAnimation : inAnimation)};
+  animation: slideIn 0.5s forwards;
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
 
 
 
