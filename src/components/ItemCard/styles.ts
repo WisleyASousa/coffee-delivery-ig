@@ -238,7 +238,7 @@ export const BoxWarningAddInCart = styled.div`
     transform: translateY(-50%)scale(0.8);
   }
   to {
-    transform: translateY(-50)scale(1);
+    transform: translateY(-80)scale(1);
   }
   }
 

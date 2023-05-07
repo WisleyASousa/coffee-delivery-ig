@@ -14,9 +14,9 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   border: 1px solid ${props => props.theme['yellowDark']};
-  animation: slideIn 0.5s forwards;
+  animation: SidebarIn 0.5s forwards;
 
-  @keyframes slideIn {
+  @keyframes SidebarIn {
     from {
       transform: translateX(100%);
     }
