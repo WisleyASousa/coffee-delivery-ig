@@ -24,7 +24,6 @@ import {
 } from "./styles";
 
 import { ListSelectedCoffees } from "../../components/ListSelectedCoffees";
-import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/ListCartContext";
 
 
