@@ -49,6 +49,21 @@ export const HeaderContainer = styled.header `
     }
   }
 
+  /* >img {
+    animation: HeaderIn 2s infinite;
+    
+  }
+
+  @keyframes HeaderIn {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(15px);
+    }
+  } */
+
+
   @media (max-width: 768px) {
     flex-direction: column;
     white-space: break-spaces;

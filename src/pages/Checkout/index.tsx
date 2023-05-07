@@ -17,7 +17,7 @@ import {
   Number, 
   PaymentsContainer, 
   RadioContainer, 
-  SelectedCoffeesContainer, 
+  SelectedCoffeesContainerf, 
   State, 
   UF, 
   Zip 
@@ -167,7 +167,7 @@ export function Checkout() {
 
         <CheckoutSubTitle>Cafés selecionados</CheckoutSubTitle>
 
-        <SelectedCoffeesContainer>
+        <SelectedCoffeesContainerf>
           {itemsForCart.map((item) => {
             return (
               <ListSelectedCoffees
@@ -201,14 +201,15 @@ export function Checkout() {
             </BaseValuesTotal>
           </BoxValues>
 
-          <Link to='/Success' title="Success">
-            <BtnConfirmOrder
-              type="submit">
-              confirmar pedido
-            </BtnConfirmOrder>
-          </Link>
+          <BtnConfirmOrder
+            disabled
+            type="submit"
+          >
+            confirmar pedido
+          </BtnConfirmOrder>
 
-        </SelectedCoffeesContainer>
+
+        </SelectedCoffeesContainerf>
 
       </div>
 

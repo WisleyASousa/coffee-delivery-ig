@@ -28,7 +28,7 @@ export function Navbar() {
         <Link to='/Checkout' title="Localização">
           <BtnLocation>
             <MapPin size={22} />
-            Porto Alegre, RS
+            Picos, PI
           </BtnLocation>
         </Link>
         <CounterBox>

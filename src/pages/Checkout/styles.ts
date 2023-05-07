@@ -214,7 +214,7 @@ export const RadioContainer = styled.div`
 
 // selected coffees
 
-export const SelectedCoffeesContainer = styled.div`
+export const SelectedCoffeesContainerf = styled.div`
   width: 100%;
   display: flex;
   align-items: start;
@@ -273,8 +273,13 @@ export const BtnConfirmOrder= styled.button`
   line-height: 1.6;
   text-transform: uppercase;
   color: ${props => props.theme['white']};
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
  
-  &:hover {
+  &:not(:disabled):hover {
     background: ${props => props.theme['yellowDark']};
   }
 
