@@ -5,6 +5,12 @@ export const CheckoutContainer = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  
 
   @media (max-width: 425px) {
     justify-content: center;

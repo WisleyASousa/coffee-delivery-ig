@@ -25,18 +25,108 @@ import {
 
 import { ListSelectedCoffees } from "../../components/ListSelectedCoffees";
 import { useCart } from "../../contexts/ListCartContext";
+import { useForm } from "react-hook-form"; 
+import { v4 as uuidv4 } from 'uuid';
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as zod from "zod";
+import { itemForCartDate } from "../Home";
 
+
+interface NewOrderFormData {
+  zip: number;
+  address: string;
+  number: number;
+  district: string;
+  city: string;
+  UF: string;
+  complement: string;
+}
+
+interface orderData {
+  id: string;
+  zip: number;
+  address: string;
+  number: number;
+  district: string;
+  city: string;
+  UF: string;
+  complement: string;
+  items: itemForCartDate[];
+  totalPrice: string;
+  totalPriceFrete: string;
+}
+
+type FieldValues = Partial<NewOrderFormData>;
+
+const newOrderFormValidationSchema = zod.object({
+  // zip: zod.number().min(8, "CEP inválido").max(8, "CEP inválido"),
+  // address: zod.string().min(3, "Endereço inválido").max(50, "Endereço inválido"),
+  // number: zod.number().min(1, "Número inválido").max(10, "Número inválido"),
+  // district: zod.string().min(3, "Bairro inválido").max(50, "Bairro inválido"),
+  // city: zod.string().min(3, "Cidade inválida").max(50, "Cidade inválida"),
+  // UF: zod.string().min(2, "UF inválido").max(2, "UF inválido"),
+  // complement: zod.string().min(0).max(50, "Complemento inválido"),
+  // payment: zod.boolean().refine((value) => value === true, { message: "Selecione uma forma de pagamento" })
+});
 
 export function Checkout() {
   const { itemsForCart, formattedTotalPrice, formattedTotalPriceFrete, deleteItem, addAmountItemCart, removeAmountItemCart } = useCart();
+
+        //um objeto com os valores do formulário
+        // register retorna uma função que recebe o nome do campo e retorna um objeto com várias propriedades
+  const { register, handleSubmit, watch } = useForm({
+    resolver: zodResolver(newOrderFormValidationSchema),
+    
+
+  });
+  const [confirmedOrder, setConfirmedOrder] = useState<orderData[]>([]);
+
+  const makingNewOrder = async (data: NewOrderFormData) => {
+    // event?.preventDefault();
+    console.log(data)
+    
+    const newOrder: orderData = {
+      id: uuidv4(),
+      zip: data.zip,
+      address: data.address,
+      number: data.number,
+      district: data.district,
+      city: data.city,
+      UF: data.UF,
+      complement: data.complement,
+      items: itemsForCart,
+      totalPrice: formattedTotalPrice,
+      totalPriceFrete: formattedTotalPriceFrete,
+    }
+    setConfirmedOrder([...confirmedOrder, newOrder])
+    console.log(newOrder)
+
+    // console.log(confirmedOrder)
+    // if (confirmedOrder.length > 0) {
+    //   window.location.href = "/Success";
+    // }
+    // window.location.href = "/Success";
+  }
+
+  // console.log(confirmedOrder)
   
-  
+  // const watchOptions = watch("options");
+  const zip = watch("zip");
+  const address = watch("address");
+  const number = watch("number");
+  const district = watch("district");
+  const city = watch("city");
+  const UFs = watch("UFs");
 
 
 
 
   return (
-    <CheckoutContainer>
+    <CheckoutContainer onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      await handleSubmit(async (data: FieldValues) => await makingNewOrder(data as NewOrderFormData))(e);
+    }} action="">
 
       <div>
 
@@ -55,49 +145,67 @@ export function Checkout() {
 
             <FormAddress>
               <Zip 
-                type="text" 
+                type="number" 
                 id="zip" 
-                name="zip" 
-                placeholder="CEP*" 
+                minLength={8}
+                pattern={"/[0-9]{8}/g"}
+                maxLength={8}
+                placeholder="CEP*"
+                {...register("zip")}
               />
+              
               <Address 
                 type="text" 
                 id="address" 
-                name="address" 
+                minLength={3}
+                maxLength={50}
                 placeholder="Rua*"
+                {...register("address")}
               />
 
               <BoxFormAddress>
                 <Number 
-                  type="text" 
+                  type="number" 
                   id="number" 
-                  name="number" 
+                  minLength={1}
+                  maxLength={10}
                   placeholder="Número*"
+                  {...register("number")}
+
                 />
                 <Complement 
                   type="text" 
-                  name="complement" 
+                  minLength={0}
+                  maxLength={50}
+                  id="complement" 
                   placeholder="Complemento" 
+                  {...register("complement")}
                 />
               </BoxFormAddress>
               <BoxFormAddress>
                 <State 
                   type="text" 
-                  id="state" 
-                  name="district" 
+                  id="district" 
+                  minLength={3}
+                  maxLength={50}
                   placeholder="Bairro*"
+                  {...register("district")}
                 />
                 <City 
                   type="text" 
                   id="city" 
-                  name="city" 
+                  minLength={3}
+                  maxLength={50}
                   placeholder="Cidade*"
+                  {...register("city")}
                 />
                 <UF 
                   type="text" 
-                  id="UF" 
-                  name="UF" 
+                  id="UFs" 
+                  minLength={2}
+                  maxLength={2}
                   placeholder="UF*"
+                  {...register("UFs")}
                 />
                 
               </BoxFormAddress>
@@ -119,9 +227,11 @@ export function Checkout() {
             
               <input 
                 type="radio" 
-                name="options" 
                 id="credit" 
                 autoComplete="off" 
+                value="credit"
+                // checked={watchOptions === "credit"}
+                // {...register("options")}
               />
               <label  
                 htmlFor="credit">
@@ -132,9 +242,11 @@ export function Checkout() {
             
               <input 
                 type="radio" 
-                name="options" 
                 id="debt" 
                 autoComplete="off" 
+                value="debt"
+                // checked={watchOptions === "debt"}
+                // {...register("options")}
               />
               <label 
                 htmlFor="debt">
@@ -145,9 +257,11 @@ export function Checkout() {
             
               <input 
                 type="radio" 
-                name="options" 
                 id="money" 
+                value="money"
+                // checked={watchOptions === "money"}
                 autoComplete="off" 
+                // {...register("options")}
               />
               <label 
                 htmlFor="money">
@@ -201,7 +315,7 @@ export function Checkout() {
           </BoxValues>
 
           <BtnConfirmOrder
-            disabled
+            disabled={/*!watchOptions ||*/ !zip || !address || !number || !district || !city || !UFs || itemsForCart.length === 0}
             type="submit"
           >
             confirmar pedido

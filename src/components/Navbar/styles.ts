@@ -105,12 +105,18 @@ export const BtnHome = styled.button`
   border-radius: 8px;
   cursor: pointer;
   white-space: nowrap;
+  border: 1px solid transparent;
+  
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
   &:hover {
     border: 1px solid ${props => props.theme['yellowDark']};
     transition: all .2s ease-out;
 
   }
-  width: 74px;
+  /* width: 74px; */
   height: 38.38px;
   padding: 0.2rem 0.5rem;
 

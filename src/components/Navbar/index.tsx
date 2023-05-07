@@ -1,6 +1,6 @@
 import { AmountOfItemInCart, BtnHome, BtnLocation, CounterBox, NavbarContainer } from "./styles";
 import logo from "../../assets/logo.svg"
-import { ArrowLeft, ArrowRight, MapPin, ShoppingCart } from "@phosphor-icons/react";
+import { ArrowLeft, ArrowRight, HouseSimple, MapPin, ShoppingCart } from "@phosphor-icons/react";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../contexts/ListCartContext";
 import { BtnSidebar } from "../Sidebar/styles";
@@ -52,6 +52,7 @@ export function Navbar() {
                   type="button"
                   onClick={handleActiveSidebar}
                 >
+                  <HouseSimple size={22} />
                   Inicio
                 </BtnHome>
               </Link>
