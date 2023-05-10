@@ -47,9 +47,9 @@ export function Navbar() {
 
               </BtnSidebar>
 
-              <AmountOfItemInCart>
+              {AmountCart > 0 && <AmountOfItemInCart>
                 {AmountCart}
-              </AmountOfItemInCart>
+              </AmountOfItemInCart>}
             </>) : (
             <>
               <Link to='/' title="Inicio">

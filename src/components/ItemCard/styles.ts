@@ -112,7 +112,7 @@ export const QuantityToBuy = styled.div`
   width: 4.5rem;
   height: 2.375rem;
   background: ${props => props.theme['baseButton']};
-
+  
   padding: 8px;
   gap: 4px;
   border-radius: 6px;
@@ -153,8 +153,13 @@ export const ButtonCart = styled.button`
   transition: all .2s ease-out;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
 
+  :disabled {
+    background: ${props => props.theme['baseButton']};
+    color: ${props => props.theme['baseText']};
+    cursor: not-allowed;
+  }
 
-  &:hover {
+  &:not(:disabled):hover {
       background: ${props => props.theme['purple']}; 
     }
 `
@@ -162,7 +167,7 @@ export const ButtonCart = styled.button`
 export const WarningBox = styled.div`
   position: relative;
   left: -12px;
-
+  white-space: nowrap;
   animation: identifier 0.5s ease-in-out;
   
 

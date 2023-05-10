@@ -88,7 +88,7 @@ export function ItemCard({ id, img, tags, name, description,  price, onAddToCart
 
             </QuantityToBuy>
             <ButtonCart 
-              // disabled
+              disabled={!countCartItems}
               title="Adicionar ao carrinho"
               type="button"
               onClick={handleAddItemCart}
@@ -104,7 +104,7 @@ export function ItemCard({ id, img, tags, name, description,  price, onAddToCart
           <p>
             <button type="button" title="Não pode adicionar 0 itens no carrinho">
               <ShieldWarning size={18} />
-              Atenção
+              Item não pode ser Zero
             </button>
           </p>
         </WarningBox>)}
