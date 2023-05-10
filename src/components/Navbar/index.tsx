@@ -16,12 +16,17 @@ export function Navbar() {
   
   const location = useLocation();
 
- 
-
+  function handleActiveSidebarLogo() {
+    if(location.pathname === '/') {
+      return;
+    }else {
+      return handleActiveSidebar();
+    }
+  }
 
   return (
     <NavbarContainer>
-      <Link to='/' title="Localização">
+      <Link to='/' title="Inicio" onClick={handleActiveSidebarLogo}>
         <img src={logo} alt="" />
       </Link>
       <nav>

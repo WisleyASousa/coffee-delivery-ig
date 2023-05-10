@@ -12,6 +12,7 @@ interface CartContextData {
   activeSidebar: boolean;
   setActiveSidebar: React.Dispatch<React.SetStateAction<boolean>>;
   handleActiveSidebar: () => void;
+
 }
 
 interface CartProviderProps {
@@ -25,9 +26,10 @@ export function CartProvider({ children }: CartProviderProps) {
   const [itemsForCart, setItemsForCart] = useState<itemForCartDate[]>([]);
   const [activeSidebar, setActiveSidebar] = useState(false);
 
+
+
   function handleActiveSidebar() {
     setActiveSidebar(!activeSidebar);
-    
   }
 
 

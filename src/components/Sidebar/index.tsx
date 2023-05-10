@@ -5,14 +5,20 @@ import { useCart } from "../../contexts/ListCartContext";
 import { ListSelectedCoffees } from "../ListSelectedCoffees";
 import { X } from "@phosphor-icons/react";
 
+interface SidebarProps {
+  show?: boolean;
+}
 
-export function Sidebar() {
+export function Sidebar({ show }: SidebarProps) {
   const { itemsForCart, formattedTotalPrice, formattedTotalPriceFrete, deleteItem, addAmountItemCart, removeAmountItemCart, handleActiveSidebar } = useCart();
   
+   
   
   return (
     <>
-      <SidebarContainer>
+      <SidebarContainer
+        show={show}
+      >
         <BoxTitleBtnSidebar>
           <h3>Cafés Selecionados</h3>
           <button type="button" onClick={handleActiveSidebar}><X size={18} /></button>

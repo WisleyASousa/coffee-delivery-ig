@@ -1,8 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
+interface SidebarProps {
+  show?: boolean;
+}
 
-export const SidebarContainer = styled.div`
-  position: absolute;
+export const SidebarContainer = styled.div<SidebarProps>`
+  /* position: absolute; */
   position: fixed;
   right: 0;
   padding: 0.8rem;
@@ -14,18 +17,12 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   border: 1px solid ${props => props.theme['yellowDark']};
-  animation: SidebarIn 0.5s forwards;
+  margin-bottom: 4rem;
 
-  @keyframes SidebarIn {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-
-
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-name: ${props => (props.show ? inAnimation : outAnimation)};
 
 
   h3 {
@@ -42,7 +39,27 @@ export const SidebarContainer = styled.div`
   }
 
 `
+const inAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
+const outAnimation = keyframes`
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+`;
 
 export const BoxTitleBtnSidebar = styled.div`
   display: flex;

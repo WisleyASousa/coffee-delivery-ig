@@ -145,7 +145,7 @@ const ListDescCoffeesdefault = [
 export function Home() {
   /*const [listDescCoffeesdefault, setListDescCoffeesdefault] = useState<ListDescCoffeesProps[]>([]);*/
 
-  const { itemsForCart, setItemsForCart, activeSidebar} = useCart();
+  const { itemsForCart, setItemsForCart, activeSidebar } = useCart();
 
   /*useEffect(() => {
     fetch('/coffeesDate.json')
@@ -156,6 +156,7 @@ export function Home() {
   }, []);*/
 
   const [addToCartCalled, setAddToCartCalled] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   function onAddToCart(item: itemForCartDate) {
     const newItem = {
@@ -181,15 +182,24 @@ export function Home() {
       }, 800);
 
       return () => clearTimeout(timer);
-    }
+    } 
   }, [addToCartCalled]);
 
+  useEffect(() => {
+    if (activeSidebar) {
+        setIsSidebarOpen(true);
+    } else {
+      const timer = setTimeout(() => {
+        setIsSidebarOpen(false);
+      }, 800);
+      return () => clearTimeout(timer);
+    }
+  }, [activeSidebar]);
 
 
   return (
     <HomeContainer>
-        {activeSidebar && <Sidebar />}
-
+        {isSidebarOpen && <Sidebar show={activeSidebar} />}
         {
           addToCartCalled && (
             itemsForCart.slice(-1)[0] &&
